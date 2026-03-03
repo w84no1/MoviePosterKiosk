@@ -1,0 +1,326 @@
+.sports-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #050510;
+    overflow: hidden;
+    /* Screen space only, no scrollbars allowed per requirements */
+    padding: 2vh 2vw;
+    box-sizing: border-box;
+}
+
+.sports-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(0, 50, 150, 0.15), transparent 70%),
+        radial-gradient(circle at bottom left, rgba(150, 20, 20, 0.15), transparent 70%);
+    filter: blur(50px);
+    z-index: 1;
+}
+
+/* Main Dashboard Header */
+.dashboard-header {
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2vh;
+    padding-bottom: 1vh;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    gap: 2vw;
+}
+
+.live-pill {
+    background: rgba(255, 42, 42, 0.2);
+    border: 1px solid rgba(255, 42, 42, 0.5);
+    color: #ff2a2a;
+    padding: 1vh 2vw;
+    border-radius: 2vw;
+    font-weight: 800;
+    font-size: 1.5vw;
+    letter-spacing: 0.2vw;
+    display: flex;
+    align-items: center;
+}
+
+.live-dot-header {
+    width: 0.8vw;
+    height: 0.8vw;
+    background-color: #ff2a2a;
+    border-radius: 50%;
+    margin-right: 0.5vw;
+    animation: pulse 1.5s infinite;
+}
+
+.header-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-titles h1 {
+    font-size: 3.5vw;
+    color: #fff;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0.3vw;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(0, 100, 255, 0.5);
+}
+
+.header-date {
+    font-size: 1.4vw;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.1vw;
+    text-transform: uppercase;
+    margin-top: 0.5vh;
+}
+
+.sports-content {
+    z-index: 10;
+    width: 100%;
+    height: calc(100% - 10vh);
+    /* Account for header */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    gap: 1.5vh 2vw;
+}
+
+/* Favorites Header Bar */
+.favorites-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3vw;
+    margin: 0 auto 1vh auto;
+    padding: 1vh 2vw;
+    background: rgba(20, 30, 60, 0.8);
+    border: 1px solid rgba(100, 150, 255, 0.5);
+    border-radius: 0.8vw;
+    box-shadow: 0 0 20px rgba(0, 100, 255, 0.2);
+    width: 100%;
+    max-width: none;
+    flex-shrink: 0;
+}
+
+.favorites-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5vw;
+    font-weight: 800;
+    letter-spacing: 0.2vw;
+}
+
+.favorites-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vw;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-evenly;
+}
+
+.fav-team-stat {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.fav-team-stat .mini-logo {
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.sport-icon {
+    font-size: 1.5vw;
+    margin-right: 0.2vw;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+.fav-team-stat .team-name-small {
+    font-size: 1.6vw;
+}
+
+.fav-team-stat .team-record {
+    color: #aaddff;
+    font-size: 1.3vw;
+    font-weight: 600;
+}
+
+/* Grouping by Sport */
+.sport-section {
+    display: flex;
+    flex-direction: column;
+    width: calc(33% - 1vw);
+    /* Take up 1/3 minus gap for 3 columns of leagues roughly */
+    min-width: 20vw;
+    margin-bottom: 1vh;
+}
+
+.section-title {
+    font-size: 1.2vw;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.2vw;
+    margin: 0 0 0.8vh 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5vh;
+}
+
+/* Horizontal wrapping row for games within a sport */
+.games-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8vw;
+    justify-content: flex-start;
+}
+
+/* Compact Game Card */
+.game-card {
+    background: rgba(15, 15, 25, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.6vw;
+    padding: 1vh 1vw;
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 0.4vw);
+    /* Fit 2 wide inside the sport column by default */
+    min-width: 13vw;
+    transition: all 0.3s ease;
+}
+
+/* Favorite Highlights */
+.game-card.favorite-highlight {
+    background: rgba(20, 30, 60, 0.95);
+    border: 1px solid rgba(100, 150, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 100, 255, 0.3);
+}
+
+.fav-text {
+    color: #ffca28;
+    text-shadow: 0 0 10px rgba(255, 200, 0, 0.4);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5vh;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 0.9vw;
+    letter-spacing: 0.1vw;
+}
+
+.status-indicator {
+    font-size: 0.9vw;
+    font-weight: 700;
+    letter-spacing: 0.1vw;
+    color: #888;
+}
+
+.status-indicator.final {
+    color: #aaa;
+}
+
+.status-indicator.upcoming {
+    color: #64b5f6;
+}
+
+.live-dot {
+    width: 0.6vw;
+    height: 0.6vw;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    margin-right: 0.3vw;
+    animation: pulse 1.5s infinite;
+}
+
+.clock-compact {
+    font-size: 0.9vw;
+    color: #ffca28;
+    font-weight: 600;
+}
+
+/* Stacked Teams */
+.teams-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.team-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+}
+
+.mini-logo {
+    width: 2vw;
+    height: 2vw;
+    object-fit: contain;
+}
+
+.team-name-small {
+    font-size: 1.2vw;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.rank-badge-small {
+    font-size: 0.7vw;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.1vw 0.4vw;
+    border-radius: 3px;
+    color: #ccc;
+    font-weight: 600;
+    margin-right: 0.4vw;
+}
+
+.score-small {
+    font-size: 1.8vw;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* Winner gets opacity bump, loser fades in final */
+.score-small.winner {
+    color: #fff;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 42, 42, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0.5vw rgba(255, 42, 42, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 42, 42, 0);
+    }
+}

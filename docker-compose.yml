@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  backend:
+    build: 
+      context: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount your Synology NAS directory containing Disney posters to /app/posters
+      # IMPORTANT: Change the path below to your actual Synology NAS path before running
+      - /path/to/your/disney/posters:/app/posters
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    depends_on:
+      - backend

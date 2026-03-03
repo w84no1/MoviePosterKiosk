@@ -1,0 +1,128 @@
+.admin-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.admin-header {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.admin-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.admin-content {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.status-card,
+.control-card {
+    background: rgba(15, 15, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.status-card h2,
+.control-card h2 {
+    margin: 0 0 20px 0;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+.status-item .label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.status-item .value {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.display-mode.sports-active {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(255, 42, 42, 0.5);
+}
+
+.control-desc {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.toggle-btn {
+    width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.toggle-btn.active {
+    background: rgba(255, 42, 42, 0.15);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.toggle-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #666;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active .toggle-indicator {
+    background: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+}

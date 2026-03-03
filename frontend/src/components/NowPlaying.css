@@ -1,0 +1,123 @@
+.now-playing-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+.np-background {
+    display: none;
+    /* Not needed since the poster itself stretches 100% */
+}
+
+.np-header {
+    position: absolute;
+    top: 0;
+    /* No padding/spacing from the absolute top edge */
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+}
+
+.np-header h2 {
+    margin: 0;
+    font-family: 'Limelight', serif;
+    font-size: 8vw;
+    /* Massive display font scale */
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+    text-transform: capitalize;
+    letter-spacing: 0.2vw;
+    text-shadow: 0 0.5vh 2vh rgba(0, 0, 0, 0.9);
+}
+
+.np-poster-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+}
+
+.np-poster-main {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    /* Forces the image to squash/stretch in all directions to fill the viewport */
+}
+
+.np-gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25vh;
+    /* Responsive height */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.np-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    width: 100%;
+    padding: 0 0 1vh 0;
+    /* Added 1vh padding just to lift it off the literal edge to stop border clipping */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.np-title {
+    display: none;
+    /* Title removed per user instructions */
+}
+
+.np-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    /* Responsive gap */
+    font-size: 3vw;
+    /* Very large responsive font size based on screen width */
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 700;
+    text-shadow: 0 0.5vh 2vh rgba(0, 0, 0, 0.9);
+    /* Relative drop shadow */
+}
+
+.np-rating {
+    border: 0.3vw solid rgba(255, 255, 255, 0.8);
+    border-radius: 1vw;
+    padding: 1vh 2vw;
+    text-transform: uppercase;
+    letter-spacing: 0.2vw;
+}
+
+.np-badges {
+    display: flex;
+    gap: 1.5vw;
+    align-items: center;
+}
+
+.codec-badge {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0.2vw solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5vw;
+    padding: 0.8vh 1.5vw;
+    font-size: 2vw;
+    letter-spacing: 0.1vw;
+    color: #e0e0e0;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
